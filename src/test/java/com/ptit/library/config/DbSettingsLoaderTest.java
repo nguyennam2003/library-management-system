@@ -2,6 +2,8 @@ package com.ptit.library.config;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -49,6 +51,56 @@ class DbSettingsLoaderTest {
 
         assertEquals("localhost", settings.host());
         assertEquals("from-file", settings.password());
+    }
+
+    @Test
+    void load_usesFileWhenEnvBlank() {
+        Map<String, String> env = new HashMap<>();
+        env.put("DB_HOST", " ");
+        env.put("DB_PORT", "");
+        env.put("DB_NAME", "  ");
+        env.put("DB_USER", "\t");
+        env.put("DB_PASSWORD", " ");
+        Properties file = new Properties();
+        file.setProperty("db.host", "localhost");
+        file.setProperty("db.port", "3306");
+        file.setProperty("db.name", "library_db");
+        file.setProperty("db.user", "library");
+        file.setProperty("db.password", "from-file");
+
+        DbSettings settings = DbSettingsLoader.load(env, file);
+
+        assertEquals("localhost", settings.host());
+        assertEquals(3306, settings.port());
+        assertEquals("library_db", settings.name());
+        assertEquals("library", settings.user());
+        assertEquals("from-file", settings.password());
+    }
+
+    @Test
+    void loadFromEnvironment_readsClasspathIfPresent() {
+        String body = "db.host=localhost\n"
+                + "db.port=3306\n"
+                + "db.name=library_db\n"
+                + "db.user=library\n"
+                + "db.password=from-file\n";
+        Properties fileProps = DbSettingsLoader.readOptionalStream(
+                new ByteArrayInputStream(body.getBytes(StandardCharsets.UTF_8)),
+                "db.properties");
+
+        DbSettings settings = DbSettingsLoader.load(Map.of(), fileProps);
+
+        assertEquals("localhost", settings.host());
+        assertEquals(3306, settings.port());
+        assertEquals("library_db", settings.name());
+        assertEquals("library", settings.user());
+        assertEquals("from-file", settings.password());
+    }
+
+    @Test
+    void loadFromEnvironment_missingClasspathIsEmpty() {
+        Properties fileProps = DbSettingsLoader.readOptionalStream(null, "db.properties");
+        assertTrue(fileProps.isEmpty());
     }
 
     @Test

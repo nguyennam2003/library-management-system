@@ -1,5 +1,7 @@
 package com.ptit.library.config;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 import java.util.Properties;
 
@@ -24,7 +26,27 @@ public final class DbSettingsLoader {
     }
 
     public static DbSettings loadFromEnvironment() {
-        return load(System.getenv(), new Properties());
+        Properties fileProps = readOptionalClasspath("db.properties");
+        return load(System.getenv(), fileProps);
+    }
+
+    static Properties readOptionalClasspath(String resourceName) {
+        ClassLoader loader = DbSettingsLoader.class.getClassLoader();
+        InputStream in = loader == null ? null : loader.getResourceAsStream(resourceName);
+        return readOptionalStream(in, resourceName);
+    }
+
+    static Properties readOptionalStream(InputStream in, String resourceName) {
+        Properties fileProps = new Properties();
+        if (in == null) {
+            return fileProps;
+        }
+        try (InputStream stream = in) {
+            fileProps.load(stream);
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to read " + resourceName, e);
+        }
+        return fileProps;
     }
 
     private static String first(String envValue, String fileValue, String label) {

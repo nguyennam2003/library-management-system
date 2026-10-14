@@ -4,3 +4,4 @@ target/
 *.iml
 .env
 docs/
+src/main/resources/db.properties

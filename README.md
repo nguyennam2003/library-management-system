@@ -43,8 +43,23 @@ mvn test
 
 ## Cấu hình DB
 
-Trong Docker, app đọc `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD` từ `docker-compose.yml` / `.env`. Không commit file `.env` hay `src/main/resources/db.properties`.
+Trong Docker, app đọc `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD` từ `docker-compose.yml` / `.env`. Không commit file `.env` hay `src/main/resources/db.properties`. Healthcheck MySQL dùng cùng mật khẩu root: Compose thay `${MYSQL_ROOT_PASSWORD:-rootsecret}` (mặc định `rootsecret` trong `.env.example`) vào `healthcheck.test`.
 
-Chạy WAR ngoài Docker: copy `src/main/resources/db.properties.example` → `db.properties` (file này nằm trong `.gitignore`) rồi export cùng các biến `DB_*` hoặc đặt properties; deploy `target/library-management.war` lên Tomcat 9.
+Chạy WAR ngoài Docker:
+
+1. Copy `src/main/resources/db.properties.example` thành `src/main/resources/db.properties` (file này nằm trong `.gitignore`).
+2. Export `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`, hoặc điền `db.host`, `db.port`, `db.name`, `db.user`, `db.password` trong file đó. Từng biến môi trường ghi đè khóa tương ứng trong file; biến trống hoặc không có thì app dùng file. File vắng mặt vẫn được (Docker chỉ cần biến môi trường).
+3. Import schema và seed bằng client MySQL, ví dụ:
+
+```bash
+mysql -ulibrary -plibrary library_db < db/01_schema.sql
+mysql -ulibrary -plibrary library_db < db/02_seed.sql
+```
+
+4. Đóng gói rồi deploy `target/library-management.war` lên Tomcat 9 với context ROOT (`webapps/ROOT.war`):
+
+```bash
+mvn package
+```
 
 Múi giờ: `Asia/Ho_Chi_Minh`. Session: 30 phút.
