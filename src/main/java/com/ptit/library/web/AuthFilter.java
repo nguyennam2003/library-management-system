@@ -37,6 +37,10 @@ public class AuthFilter implements Filter {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
+        if (!RoleRules.permits(path, auth.role())) {
+            RoleGuard.sendForbidden(req, resp);
+            return;
+        }
         chain.doFilter(request, response);
     }
 

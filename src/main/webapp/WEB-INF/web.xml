@@ -63,6 +63,22 @@
     <servlet-name>HomeServlet</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>StaffHomeServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.StaffHomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StaffHomeServlet</servlet-name>
+    <url-pattern>/staff/home</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ReaderHomeServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.ReaderHomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReaderHomeServlet</servlet-name>
+    <url-pattern>/reader/home</url-pattern>
+  </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>

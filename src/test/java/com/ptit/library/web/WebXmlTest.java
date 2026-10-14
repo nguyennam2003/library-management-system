@@ -34,5 +34,9 @@ class WebXmlTest {
         assertTrue(xml.contains("<url-pattern>/logout</url-pattern>"));
         assertTrue(xml.contains("<url-pattern>/register</url-pattern>"));
         assertTrue(xml.contains("<url-pattern>/home</url-pattern>"));
+        assertTrue(xml.contains("<url-pattern>/staff/home</url-pattern>"));
+        assertTrue(xml.contains("<url-pattern>/reader/home</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.StaffHomeServlet"));
+        assertTrue(xml.contains("com.ptit.library.web.ReaderHomeServlet"));
     }
 }

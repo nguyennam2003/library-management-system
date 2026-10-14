@@ -21,6 +21,8 @@ Mở:
 - Đăng ký độc giả: http://localhost:8080/register
 - Health (phải in `OK`): http://localhost:8080/health
 
+Phân quyền URL (filter + `RoleGuard.require` trên servlet): `/admin/*` chỉ Admin; `/staff/*` Admin và Thủ thư; `/reader/*` Độc giả. Sai vai trò trả **403**.
+
 Tài khoản seed (chỉ dùng demo):
 
 | Vai trò | Username | Mật khẩu |
