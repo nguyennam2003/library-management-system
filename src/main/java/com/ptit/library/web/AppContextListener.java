@@ -3,6 +3,8 @@ package com.ptit.library.web;
 import com.ptit.library.config.DbSettings;
 import com.ptit.library.config.DbSettingsLoader;
 import com.ptit.library.dao.ConnectionFactory;
+import com.ptit.library.service.AuthService;
+import com.ptit.library.service.RegistrationService;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -18,7 +20,10 @@ public class AppContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent event) {
         try {
             DbSettings settings = DbSettingsLoader.loadFromEnvironment();
-            event.getServletContext().setAttribute(CONNECTION_FACTORY, new ConnectionFactory(settings));
+            ConnectionFactory factory = new ConnectionFactory(settings);
+            event.getServletContext().setAttribute(CONNECTION_FACTORY, factory);
+            event.getServletContext().setAttribute(LoginServlet.AUTH_SERVICE, new AuthService(factory));
+            event.getServletContext().setAttribute(RegisterServlet.REGISTRATION_SERVICE, new RegistrationService(factory));
         } catch (RuntimeException e) {
             LOGGER.log(Level.SEVERE, "Database settings missing; /health will return 503", e);
         }

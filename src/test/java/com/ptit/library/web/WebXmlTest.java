@@ -28,5 +28,11 @@ class WebXmlTest {
         assertTrue(xml.contains("com.ptit.library.web.CharacterEncodingFilter"));
         assertTrue(xml.contains("com.ptit.library.web.AppContextListener"));
         assertTrue(xml.contains("<url-pattern>/*</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.AuthFilter"));
+        assertTrue(xml.contains("com.ptit.library.web.LoginServlet"));
+        assertTrue(xml.contains("<url-pattern>/login</url-pattern>"));
+        assertTrue(xml.contains("<url-pattern>/logout</url-pattern>"));
+        assertTrue(xml.contains("<url-pattern>/register</url-pattern>"));
+        assertTrue(xml.contains("<url-pattern>/home</url-pattern>"));
     }
 }

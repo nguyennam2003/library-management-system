@@ -16,7 +16,9 @@ docker compose up --build
 
 Mở:
 
-- Trang chủ: http://localhost:8080/
+- Trang chủ (chuyển tới đăng nhập): http://localhost:8080/
+- Đăng nhập: http://localhost:8080/login
+- Đăng ký độc giả: http://localhost:8080/register
 - Health (phải in `OK`): http://localhost:8080/health
 
 Tài khoản seed (chỉ dùng demo):
