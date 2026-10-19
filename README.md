@@ -24,6 +24,8 @@ Mở:
 - Quản lý Đầu sách & Bản sách (Admin/Thủ thư): http://localhost:8080/staff/books
 - Quản lý Thể loại & Tác giả (Admin/Thủ thư): http://localhost:8080/staff/catalog
 - Tra cứu sách (Độc giả): http://localhost:8080/reader/books
+- Hồ sơ, Sách đang mượn & Lịch sử (Độc giả): http://localhost:8080/reader/my-loans
+- Đổi mật khẩu cá nhân (Mọi vai trò): http://localhost:8080/account/password
 - Health (phải in `OK`): http://localhost:8080/health
 
 Phân quyền URL (filter + `RoleGuard.require` trên servlet): `/admin/*` chỉ Admin; `/staff/*` Admin và Thủ thư; `/reader/*` Độc giả. Sai vai trò trả **403**.

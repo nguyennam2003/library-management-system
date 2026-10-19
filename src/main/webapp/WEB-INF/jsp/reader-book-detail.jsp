@@ -20,6 +20,8 @@
     <div class="navbar-nav me-auto">
       <a class="nav-link" href="${pageContext.request.contextPath}/reader/home">Trang độc giả</a>
       <a class="nav-link active" href="${pageContext.request.contextPath}/reader/books">Tra cứu sách</a>
+      <a class="nav-link" href="${pageContext.request.contextPath}/reader/my-loans">Sách đang mượn & Lịch sử</a>
+      <a class="nav-link" href="${pageContext.request.contextPath}/account/password">Đổi mật khẩu</a>
     </div>
     <div class="d-flex align-items-center gap-2 text-white">
       <span class="small">Thẻ: <strong><%= auth != null ? auth.readerCode() : "" %></strong></span>

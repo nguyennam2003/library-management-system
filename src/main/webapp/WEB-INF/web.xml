@@ -111,6 +111,22 @@
     <servlet-name>ReaderBookServlet</servlet-name>
     <url-pattern>/reader/books</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ReaderLoanServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.ReaderLoanServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReaderLoanServlet</servlet-name>
+    <url-pattern>/reader/my-loans</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ChangePasswordServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.ChangePasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangePasswordServlet</servlet-name>
+    <url-pattern>/account/password</url-pattern>
+  </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>

@@ -5,6 +5,7 @@ import com.ptit.library.config.DbSettingsLoader;
 import com.ptit.library.dao.ConnectionFactory;
 import com.ptit.library.service.AuthService;
 import com.ptit.library.service.BookCatalogService;
+import com.ptit.library.service.ReaderSelfService;
 import com.ptit.library.service.RegistrationService;
 
 import javax.servlet.ServletContextEvent;
@@ -26,6 +27,7 @@ public class AppContextListener implements ServletContextListener {
             event.getServletContext().setAttribute(LoginServlet.AUTH_SERVICE, new AuthService(factory));
             event.getServletContext().setAttribute(RegisterServlet.REGISTRATION_SERVICE, new RegistrationService(factory));
             event.getServletContext().setAttribute(BookCatalogService.ATTR_NAME, new BookCatalogService(factory));
+            event.getServletContext().setAttribute(ReaderSelfService.ATTR_NAME, new ReaderSelfService(factory));
         } catch (RuntimeException e) {
             LOGGER.log(Level.SEVERE, "Database settings missing; /health will return 503", e);
         }

@@ -16,6 +16,7 @@
       <a class="nav-link active" href="${pageContext.request.contextPath}/staff/home">Trang chủ</a>
       <a class="nav-link" href="${pageContext.request.contextPath}/staff/books">Đầu sách & Bản sách</a>
       <a class="nav-link" href="${pageContext.request.contextPath}/staff/catalog">Thể loại & Tác giả</a>
+      <a class="nav-link" href="${pageContext.request.contextPath}/account/password">Đổi mật khẩu</a>
     </div>
     <form method="post" action="${pageContext.request.contextPath}/logout" class="m-0">
       <button class="btn btn-outline-light btn-sm" type="submit">Đăng xuất</button>

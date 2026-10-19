@@ -58,6 +58,7 @@
       <a class="nav-link" href="${pageContext.request.contextPath}/staff/home">Trang chủ</a>
       <a class="nav-link active" href="${pageContext.request.contextPath}/staff/books">Đầu sách & Bản sách</a>
       <a class="nav-link" href="${pageContext.request.contextPath}/staff/catalog">Thể loại & Tác giả</a>
+      <a class="nav-link" href="${pageContext.request.contextPath}/account/password">Đổi mật khẩu</a>
     </div>
     <div class="d-flex align-items-center gap-2 text-white">
       <span class="small">Xin chào, <strong><%= auth != null ? auth.username() : "" %></strong></span>

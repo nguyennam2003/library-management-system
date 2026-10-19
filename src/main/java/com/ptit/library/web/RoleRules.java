@@ -25,7 +25,7 @@ public final class RoleRules {
         if (matches(path, "/reader")) {
             return Set.of("READER");
         }
-        if (path.equals("/home")) {
+        if (path.equals("/home") || matches(path, "/account")) {
             return Set.of("ADMIN", "LIBRARIAN", "READER");
         }
         return Set.of();

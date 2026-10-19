@@ -34,6 +34,9 @@ class RoleRulesTest {
         assertTrue(RoleRules.permits("/home", "ADMIN"));
         assertTrue(RoleRules.permits("/home", "LIBRARIAN"));
         assertTrue(RoleRules.permits("/home", "READER"));
+        assertTrue(RoleRules.permits("/account/password", "ADMIN"));
+        assertTrue(RoleRules.permits("/account/password", "LIBRARIAN"));
+        assertTrue(RoleRules.permits("/account/password", "READER"));
     }
 
     @Test

@@ -64,6 +64,29 @@ public final class UserDao {
         }
     }
 
+    public Optional<UserAccount> findById(Connection connection, long id) throws SQLException {
+        String sql = "SELECT u.id, u.username, u.password_hash, u.role_id, r.code, u.locked "
+                + "FROM users u JOIN roles r ON r.id = u.role_id WHERE u.id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setLong(1, id);
+            try (ResultSet rs = statement.executeQuery()) {
+                if (!rs.next()) {
+                    return Optional.empty();
+                }
+                return Optional.of(map(rs));
+            }
+        }
+    }
+
+    public void updatePasswordHash(Connection connection, long userId, String passwordHash) throws SQLException {
+        String sql = "UPDATE users SET password_hash = ? WHERE id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, passwordHash);
+            statement.setLong(2, userId);
+            statement.executeUpdate();
+        }
+    }
+
     private static UserAccount map(ResultSet rs) throws SQLException {
         return new UserAccount(
                 rs.getLong("id"),
