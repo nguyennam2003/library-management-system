@@ -38,5 +38,13 @@ class WebXmlTest {
         assertTrue(xml.contains("<url-pattern>/reader/home</url-pattern>"));
         assertTrue(xml.contains("com.ptit.library.web.StaffHomeServlet"));
         assertTrue(xml.contains("com.ptit.library.web.ReaderHomeServlet"));
+        assertTrue(xml.contains("com.ptit.library.web.StaffCatalogServlet"));
+        assertTrue(xml.contains("<url-pattern>/staff/catalog</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.StaffBookServlet"));
+        assertTrue(xml.contains("<url-pattern>/staff/books</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.StaffBookCopyServlet"));
+        assertTrue(xml.contains("<url-pattern>/staff/books/copies</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.ReaderBookServlet"));
+        assertTrue(xml.contains("<url-pattern>/reader/books</url-pattern>"));
     }
 }

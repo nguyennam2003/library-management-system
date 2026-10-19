@@ -1,6 +1,8 @@
 # Hệ thống Quản lý Thư viện
 
-Website đồ án (Java Servlet + JSP + MySQL). Đặc tả: `docs/superpowers/specs/2026-10-14-srs-quan-ly-thu-vien-v1.1-design.md`.
+Website đồ án (Java Servlet + JSP + MySQL).
+- Đặc tả SRS v1.1: `docs/SRS_Quan_Ly_Thu_Vien_v1.1.md`
+- Tiến độ & Phân chia module cho nhóm 5 người / AI Agent: `docs/PHAN_CHIA_MODULE_VA_TIEN_DO.md`
 
 ## Yêu cầu máy local
 
@@ -19,6 +21,9 @@ Mở:
 - Trang chủ (chuyển tới đăng nhập): http://localhost:8080/
 - Đăng nhập: http://localhost:8080/login
 - Đăng ký độc giả: http://localhost:8080/register
+- Quản lý Đầu sách & Bản sách (Admin/Thủ thư): http://localhost:8080/staff/books
+- Quản lý Thể loại & Tác giả (Admin/Thủ thư): http://localhost:8080/staff/catalog
+- Tra cứu sách (Độc giả): http://localhost:8080/reader/books
 - Health (phải in `OK`): http://localhost:8080/health
 
 Phân quyền URL (filter + `RoleGuard.require` trên servlet): `/admin/*` chỉ Admin; `/staff/*` Admin và Thủ thư; `/reader/*` Độc giả. Sai vai trò trả **403**.

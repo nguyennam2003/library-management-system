@@ -79,6 +79,38 @@
     <servlet-name>ReaderHomeServlet</servlet-name>
     <url-pattern>/reader/home</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>StaffCatalogServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.StaffCatalogServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StaffCatalogServlet</servlet-name>
+    <url-pattern>/staff/catalog</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>StaffBookServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.StaffBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StaffBookServlet</servlet-name>
+    <url-pattern>/staff/books</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>StaffBookCopyServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.StaffBookCopyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StaffBookCopyServlet</servlet-name>
+    <url-pattern>/staff/books/copies</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ReaderBookServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.ReaderBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReaderBookServlet</servlet-name>
+    <url-pattern>/reader/books</url-pattern>
+  </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
