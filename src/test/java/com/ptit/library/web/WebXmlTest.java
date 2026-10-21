@@ -50,5 +50,21 @@ class WebXmlTest {
         assertTrue(xml.contains("<url-pattern>/reader/my-loans</url-pattern>"));
         assertTrue(xml.contains("com.ptit.library.web.ChangePasswordServlet"));
         assertTrue(xml.contains("<url-pattern>/account/password</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.StaffReaderApprovalServlet"));
+        assertTrue(xml.contains("<url-pattern>/staff/readers/pending</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.StaffReaderServlet"));
+        assertTrue(xml.contains("<url-pattern>/staff/readers</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.StaffLoanCreateServlet"));
+        assertTrue(xml.contains("<url-pattern>/staff/loans/new</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.StaffLoanReturnServlet"));
+        assertTrue(xml.contains("<url-pattern>/staff/loans</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.StaffOverdueServlet"));
+        assertTrue(xml.contains("<url-pattern>/staff/overdue</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.StaffDashboardServlet"));
+        assertTrue(xml.contains("<url-pattern>/staff/dashboard</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.AdminStaffUserServlet"));
+        assertTrue(xml.contains("<url-pattern>/admin/staff-users</url-pattern>"));
+        assertTrue(xml.contains("com.ptit.library.web.AdminSettingsServlet"));
+        assertTrue(xml.contains("<url-pattern>/admin/settings</url-pattern>"));
     }
 }

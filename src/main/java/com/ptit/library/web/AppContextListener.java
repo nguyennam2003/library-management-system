@@ -5,8 +5,13 @@ import com.ptit.library.config.DbSettingsLoader;
 import com.ptit.library.dao.ConnectionFactory;
 import com.ptit.library.service.AuthService;
 import com.ptit.library.service.BookCatalogService;
+import com.ptit.library.service.DashboardService;
+import com.ptit.library.service.LoanService;
 import com.ptit.library.service.ReaderSelfService;
 import com.ptit.library.service.RegistrationService;
+import com.ptit.library.service.SettingService;
+import com.ptit.library.service.StaffReaderService;
+import com.ptit.library.service.StaffUserService;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -28,6 +33,11 @@ public class AppContextListener implements ServletContextListener {
             event.getServletContext().setAttribute(RegisterServlet.REGISTRATION_SERVICE, new RegistrationService(factory));
             event.getServletContext().setAttribute(BookCatalogService.ATTR_NAME, new BookCatalogService(factory));
             event.getServletContext().setAttribute(ReaderSelfService.ATTR_NAME, new ReaderSelfService(factory));
+            event.getServletContext().setAttribute(StaffReaderService.ATTR_NAME, new StaffReaderService(factory));
+            event.getServletContext().setAttribute(LoanService.ATTR_NAME, new LoanService(factory));
+            event.getServletContext().setAttribute(DashboardService.ATTR_NAME, new DashboardService(factory));
+            event.getServletContext().setAttribute(StaffUserService.ATTR_NAME, new StaffUserService(factory));
+            event.getServletContext().setAttribute(SettingService.ATTR_NAME, new SettingService(factory));
         } catch (RuntimeException e) {
             LOGGER.log(Level.SEVERE, "Database settings missing; /health will return 503", e);
         }
