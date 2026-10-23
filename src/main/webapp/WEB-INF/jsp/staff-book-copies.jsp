@@ -21,6 +21,16 @@
       <a class="nav-link" href="${pageContext.request.contextPath}/staff/home">Trang chủ</a>
       <a class="nav-link active" href="${pageContext.request.contextPath}/staff/books">Đầu sách & Bản sách</a>
       <a class="nav-link" href="${pageContext.request.contextPath}/staff/catalog">Thể loại & Tác giả</a>
+      <a class="nav-link" href="${pageContext.request.contextPath}/staff/dashboard">Thống kê</a>
+      <a class="nav-link" href="${pageContext.request.contextPath}/staff/readers/pending">Duyệt thẻ</a>
+      <a class="nav-link" href="${pageContext.request.contextPath}/staff/readers">Độc giả</a>
+      <a class="nav-link" href="${pageContext.request.contextPath}/staff/loans/new">Lập phiếu mượn</a>
+      <a class="nav-link" href="${pageContext.request.contextPath}/staff/loans">Phiếu mượn / Trả</a>
+      <a class="nav-link" href="${pageContext.request.contextPath}/staff/overdue">Quá hạn</a>
+      <% if (auth != null && "ADMIN".equals(auth.role())) { %>
+      <a class="nav-link" href="${pageContext.request.contextPath}/admin/staff-users">Nhân viên</a>
+      <a class="nav-link" href="${pageContext.request.contextPath}/admin/settings">Cấu hình</a>
+      <% } %>
       <a class="nav-link" href="${pageContext.request.contextPath}/account/password">Đổi mật khẩu</a>
     </div>
     <div class="d-flex align-items-center gap-2 text-white">

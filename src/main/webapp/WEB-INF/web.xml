@@ -127,6 +127,70 @@
     <servlet-name>ChangePasswordServlet</servlet-name>
     <url-pattern>/account/password</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>StaffReaderApprovalServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.StaffReaderApprovalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StaffReaderApprovalServlet</servlet-name>
+    <url-pattern>/staff/readers/pending</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>StaffReaderServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.StaffReaderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StaffReaderServlet</servlet-name>
+    <url-pattern>/staff/readers</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>StaffLoanCreateServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.StaffLoanCreateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StaffLoanCreateServlet</servlet-name>
+    <url-pattern>/staff/loans/new</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>StaffLoanReturnServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.StaffLoanReturnServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StaffLoanReturnServlet</servlet-name>
+    <url-pattern>/staff/loans</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>StaffOverdueServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.StaffOverdueServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StaffOverdueServlet</servlet-name>
+    <url-pattern>/staff/overdue</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>StaffDashboardServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.StaffDashboardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StaffDashboardServlet</servlet-name>
+    <url-pattern>/staff/dashboard</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminStaffUserServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.AdminStaffUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminStaffUserServlet</servlet-name>
+    <url-pattern>/admin/staff-users</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminSettingsServlet</servlet-name>
+    <servlet-class>com.ptit.library.web.AdminSettingsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminSettingsServlet</servlet-name>
+    <url-pattern>/admin/settings</url-pattern>
+  </servlet-mapping>
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
